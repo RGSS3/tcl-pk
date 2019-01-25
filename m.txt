@@ -1,0 +1,13 @@
+invalid command name "pk::container"
+    while executing
+"pk::container"
+    (in namespace eval "::A" script line 6)
+    invoked from within
+"namespace eval A {
+    init_pk [namespace current]
+    @context a {
+        import b c
+    }
+    puts [dict keys [[pk::container] .contexts]]
+}"
+    (file "test.tc" line 8)

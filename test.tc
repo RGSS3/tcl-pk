@@ -1,0 +1,25 @@
+file delete pkgIndex.tcl
+pkg_mkIndex .
+set auto_path [linsert $auto_path 0 "."]
+package require tclpk 1.0.0
+namespace import tclpk::*
+
+
+namespace eval A {
+    init_pk
+
+    @context a {
+        import {
+            numpy np
+        }
+    }
+
+    @resource b {
+        csv "1.csv"
+    }
+
+    
+}
+
+
+
