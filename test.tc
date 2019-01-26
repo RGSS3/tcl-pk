@@ -14,11 +14,17 @@ namespace eval A {
         }
     }
 
-    @resource b {
-        csv "1.csv"
+    
+    @context b {
+        use {
+            a
+        }  
+        run  { 
+            print(np.array([1,2,3,4,5])) 
+        }
     }
 
-    
+    @run b
 }
 
 

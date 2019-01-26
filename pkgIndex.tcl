@@ -8,4 +8,4 @@
 # script is sourced, the variable $dir must contain the
 # full path name of this file's directory.
 
-package ifneeded tclpk 1.0.0 [list source [file join $dir 0proc.tcl]]\n[list source [file join $dir ioc.tcl]]\n[list source [file join $dir ns.tcl]]\n[list source [file join $dir tclpk.tcl]]
+package ifneeded tclpk 1.0.0 [list source [file join $dir 0proc.tcl]]\n[list source [file join $dir dsl.tcl]]\n[list source [file join $dir ioc.tcl]]\n[list source [file join $dir ns.tcl]]\n[list source [file join $dir tclpk.tcl]]\n[list source [file join $dir util.tcl]]

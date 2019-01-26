@@ -46,20 +46,25 @@ namespace eval tclpk {
         method _dictSize {args} {
             dict size [dict get $d {*}$args]
         }
+        method _getDict {args} {
+            dict get $d {*}$args
+        }
 
         method dict {args} {
             foreach name $args {
-                set getter [[self] register $name {c} {dict create}]
-                [self] $getter
                 ::oo::objdefine [self] [list method add_$name args "
                     foreach {k v} \$args {
                         my _setDict $name \$k \$v
                     }
                 "]
+                my add_$name .empty .empty
                 ::oo::objdefine [self] [list method remove_$name args "
                     foreach k \$args {
-                        my _unsetDict $name k
+                        my _unsetDict $name \$k
                     }
+                "]
+                ::oo::objdefine [self] [list method get_$name {k args} "
+                    my _getDict $name \$k
                 "]
                 ::oo::objdefine [self] [list method len_$name {} "
                     my _dictSize $name

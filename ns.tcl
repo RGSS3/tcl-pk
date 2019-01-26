@@ -18,7 +18,11 @@ namespace eval tclpk {
                 upvar [namespace current]::pk::container container
                 $container add_context $a $b
             }
-            
+
+            proc @run a {
+                upvar [namespace current]::pk::container container
+                puts [$container get_context $a]
+            }
         }
     }
 }
